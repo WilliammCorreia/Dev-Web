@@ -1,0 +1,25 @@
+.box {
+    background: rebeccapurple;
+    /* Taille de la box */
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    /* Positionnement de la box */
+    top:400px;
+    left:900px;
+    cursor: pointer;
+}
+
+.zone_de_jeu {
+    width: 100%;
+    height: 650px;
+    background-color: rgb(226, 179, 179);
+  }
+
+h1 {
+    text-align: center;
+    color:rgb(226, 179, 179);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    text-shadow: 3px 3px 0 #ccc;
+}
