@@ -1,10 +1,12 @@
 <?php require_once('functions.php');
 
+    // Vérifie que l'utilisateur est connecté, s'il n'est pas connecté, il l'envoie vers "login.php"
     if (!isset($_SESSION['user'])) 
     {
         header('Location: login.php');
     }
 
+    // Envoie la valeur de la fonction connect() dans la variale $bdd
     $bdd = connect();
 
     $sql = "SELECT * FROM persos WHERE user_id = :user_id";
@@ -20,44 +22,40 @@
     //dd($persos);
 
 ?>
+    <?php require_once('_header.php'); ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php require_once('nav.php'); ?>
-    <h1><?php echo $_SESSION['user']['email']; ?> Vos personnages</h1>
-    <a href="persos_add.php">Créer un personnage</a>
+    <div class="container">
+            <h1><?php echo $_SESSION['user']['email']; ?> Vos personnages</h1>
+            <a href="persos_add.php">Créer un personnage</a>
 
-    <?php if (isset($_GET['msg'])) {
-        echo "<div>" . $_GET['msg']. "</div>";
-    } ?>
+            <?php if (isset($_GET['msg'])) {
+                echo "<div>" . $_GET['msg']. "</div>";
+            } ?>
 
-    <table>
-        <thead>
-            <tr>
-                <td>ID</td>
-                <td>Nom</td>
-                <td>Action</td>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($persos as $perso) { ?>
-                <tr>
-                    <td><?php echo $perso['id']; ?></td>
-                    <td><?php echo $perso['name']; ?></td>
-                    <td>
-                        <a href="persos_del.php?id=<?php echo $perso['id'];?> 
-                           onClick="return confirm('Voulez-vous vraiment le supprimer ?')">Supprimer</a>
-                    </td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-</body>
-</html>
+            <table>
+                <thead>
+                    <tr>
+                        <td width="2%">ID</td>
+                        <td>Nom</td>
+                        <td width="30%">Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($persos as $perso) { ?>
+                        <tr>
+                            <td><?php echo $perso['id']; ?></td>
+                            <td><?php echo $perso['name']; ?></td>
+                            <td><a class="btn-grey" href="persos_show.php?id=<?php echo $perso['id'];?>">Afficher</a></td>
+                            <td><a href="persos_maj.php?id=<?php echo $perso['id'];?>">Modifier</a></td>
+                            <td>
+                                <a class="btn-red" href="persos_del.php?id=<?php echo $perso['id'];?> 
+                                onClick="return confirm('Voulez-vous vraiment le supprimer ?')">Supprimer</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>    
+            </table>
+        </body>
+        </html>
+    </div>
+    
