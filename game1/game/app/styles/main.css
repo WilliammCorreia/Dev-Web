@@ -49,6 +49,18 @@ body {
     text-align: center;
 }
 
-.container {
-    
+.btn-blue {
+    background-color: cyan;
+    color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
+    /* text-decoration sert à enlever le soulignage du lien  */
+    text-decoration: none;
+    /* inline-block sert à prendre la place nécessaire */
+    display: inline-block;
+    text-align: center;
+}
+
+.row {
+
 }

@@ -25,7 +25,7 @@
     <?php require_once('_header.php'); ?>
 
     <div class="container">
-            <h1><?php echo $_SESSION['user']['email']; ?> Vos personnages</h1>
+            <h1>Vos personnages</h1>
             <a href="persos_add.php">Créer un personnage</a>
 
             <?php if (isset($_GET['msg'])) {
@@ -45,11 +45,33 @@
                         <tr>
                             <td><?php echo $perso['id']; ?></td>
                             <td><?php echo $perso['name']; ?></td>
-                            <td><a class="btn-grey" href="persos_show.php?id=<?php echo $perso['id'];?>">Afficher</a></td>
-                            <td><a href="persos_maj.php?id=<?php echo $perso['id'];?>">Modifier</a></td>
                             <td>
-                                <a class="btn-red" href="persos_del.php?id=<?php echo $perso['id'];?> 
-                                onClick="return confirm('Voulez-vous vraiment le supprimer ?')">Supprimer</a>
+                                <a 
+                                    class="btn-grey" 
+                                    href="persos_choice.php?id=<?php echo $perso['id'];?>"
+                                    >Choisir
+                                </a>
+                            </td>
+                            <td>
+                                <a 
+                                    class="btn-grey" 
+                                    href="persos_show.php?id=<?php echo $perso['id'];?>"
+                                    >Afficher
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn-blue" 
+                                    href="persos_maj.php?id=<?php echo $perso['id'];?>"
+                                    >Modifier
+                                </a>
+                            </td>
+                            <td>
+                                <a 
+                                    class="btn-red" 
+                                    href="persos_del.php?id=<?php echo $perso['id'];?> 
+                                    onClick="return confirm('Voulez-vous vraiment le supprimer ?')"
+                                    >Supprimer
+                                </a>
                             </td>
                         </tr>
                     <?php } ?>
