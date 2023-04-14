@@ -14,10 +14,14 @@
     $sth = $bdd->prepare($sql);
 
     $sth->execute([
-        'email'       => $_SESSION['email']
+        'email'       => $_POST['email']
     ]);
 
-    $users = $sth->fetchAll();
+    $sth->execute(array(
+        ':email' => $email
+    ));
+
+    $email = $sth->fetch();
 
     //dd($persos);
 
@@ -26,10 +30,10 @@
 <?php require_once('_header.php'); ?>
 
     <h1>
+        <?php echo $email; ?>
         <?php echo $_SESSION['user']['email']; ?>
     </h1>
     <form action="" method="post">
-        <?php foreach ($users as $user) { ?>
         <div>
             <label for="email">Email</label>
             <input 
@@ -37,11 +41,10 @@
                 id="email" 
                 name="email" 
                 placeholder="Entrez un email" 
-                value="<?php echo $user['email']; ?>" 
+                value="<?php echo $users['email']; ?>" 
                 required
             >
         </div>
-        <?php } ?>
         <div>
             <input type="submit" name="send" value="Modifier" class="btn">
         </div>

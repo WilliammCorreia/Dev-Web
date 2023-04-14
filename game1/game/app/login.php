@@ -31,25 +31,27 @@
 ?>
 <?php require_once('_header.php'); ?>
 <body>
+    <div class="login">
     <form action="" method="post">
         <h1>Connexion</h1>
 
         <?php if(isset($msg)) { echo "<div>" . $msg . "</div>"; } ?>
 
         <div>
-            <label for="email">Email</label>
+            <label for="email"></label>
             <!-- id ca sert pour la feuille de style -->
             <input type="email" placeholder="Entrez un email" name="email" id="email">
         </div>
         <div>
-            <label for="password">Mot de Passe</label>
+            <label for="password"></label>
             <!-- id ca sert pour la feuille de style -->
             <input type="password" placeholder="Entrez un mot de passe" name="password" id="password">
         </div>
         <div>
             <!-- Pour envoyer la requete-->
-            <input type="submit" name="send" value="Se connecter">
+            <input class="btn-blue"type="submit" name="send" value="Se connecter">
         </div>
     </form>
+    </div>
 </body>
 </html>
