@@ -29,21 +29,30 @@
 
         if( $_SESSION['fight']['ennemi']->speed > $_SESSION['perso']['vit']) 
         {
-            $_SESSION['fight']['html'][] = $ennemi->name . 'taper en premier';
+            $_SESSION['fight']['html'][] = $ennemi->name . 'tape en premier';
         }
         else
         {
             $_SESSION['fight']['ennemi']
         }
 
-        require_once('_header.php');
+        $touche = random int(0, 20);
+        $_SESSION['fight']['html'][] =  touche;
+
+        if( touche >= 10) {
+            $_SESSION['fight']['html'][] = "Vous touchez votre ennemi !";
+            $degat = random int(0, 10) + ($_SESSION['perso']['power']/3);
+            $_SESSION['fight']['ennemi'][] = $degats;
+            $_SESSION['fight']['ennemi']->pol .= $degat;
+        }
+        else
+        {
+            $_SESSION['fight']['html'][] = "Vous ratez votre ennemi !";
+        }
 
 ?>
     <div class="container">
         <div class="row mt-4">
-            <div class="px-4">
-
-            </div>
         </div>
     </div>
 
@@ -52,11 +61,21 @@
                 echo '<p>'.$html.'</p>';
             }
         ?>
-        <a class="btn-green" href="donjon_fight.php?id=<?php echo $_GET['id']; ?>">
-            Attaquer
-        </a>
-        <a class="btn-blue" href="donjon_play.php?id=<?php echo $_GET['id']; ?>">
-            Fuir
-        </a>
+
+        <?php if ($_SESSION['fight']['ennemi']->pol > 0) { ?>
+            <a class="btn-green" href="donjon_fight.php?id=<?php echo $_GET['id']; ?>">
+                Attaquer
+            </a>
+            <a class="btn-blue" href="donjon_play.php?id=<?php echo $_GET['id']; ?>">
+                Fuir
+            </a>
+        <?php } else { ?>
+            <a class="btn-blue" href="donjon_play.php?id=<?php echo $_GET['id']; ?>">
+            Continuer l'exploration
+            </a>
+        <?php } ?>
+        <div class="px-4">
+            <?php require_once('_perso.php'); ?>
+        </div>    
     </body>
 </html>
