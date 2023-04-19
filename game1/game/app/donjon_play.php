@@ -13,9 +13,15 @@
             header('Location: persos.php');
         }
 
+        // A chaque fois que l'on revient sur notre session, ca nous enlève le fight 
+        if (isset($_SESSION['fight']))
+        {
+            unset($_SESSION['fight']);
+        }
+
         $bdd = connect();
         
-        $sql = "SELECT * FROM 'rooms' WHERE donjon_id = :donjon_id ORDER BY RAND() LIMIT 1;";
+        $sql = "SELECT * FROM `rooms` WHERE donjon_id = :donjon_id ORDER BY RAND() LIMIT 1;";
 
         $sth = $bdd->prepare($sql);
     
@@ -27,7 +33,7 @@
         $room = $sth->fetch();
 
         require_once('./classe/Room.php');
-        $room = new Room($room);
+        $roomObject = new Room($room);
 
         // $roomObject->name = "toto";
 ?>

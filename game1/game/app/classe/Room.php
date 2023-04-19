@@ -10,52 +10,54 @@ class Room {
     {
         $this->name = $room['name'];
         $this->description = $room['description'];
+        $this->type = $room['type'];
+        $this->donjon_id = $room['donjon_id'];
     }
 
-    public function getName():string
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName(string $name):void
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
 
-    public function getDescription():string
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    public function setDescription(string $description):void
+    public function setDescription(string $description): void
     {
         $this->description = $description;
     }
 
-    public function getAction():string
-    {
-        return 'Actions';
-    }
-
-    public function getAction():string 
+    public function getActions(): string 
     {
         $html = "";
 
-        switch($this->$type){
+        switch($this->type){
             case 'vide':
-                $html .= "<a href='donjon_play.php?id=". $this->donjon_id ."'>Continuer l'exploration</a>";
+                $html .= "<p class='mt-4'><a href='donjon_play.php?id=". $this->donjon_id ."' class='btn btn-green'>Continuer l'exploration</a></p>";
                 break;
 
             case 'treasur':
-                $or = rand(0,20);
+                $or = rand(0, 20);
                 $_SESSION['perso']['gold'] += $or;
 
-                $html .= "<p>Vous avez gagné ". $or ." pièce d'or<p>";
-                $html .= "<a href='donjon_play.php?id=". $this->donjon_id ."'> Continuer l'exploration";
+                $html .= "<p class='mt-4'>Vous avez gagné " . $or . " pièce d'or</p>";
+                $html .= "<p class='mt-4'><a href='donjon_play.php?id=". $this->donjon_id ."' class='btn btn-green'>Continuer l'exploration</a></p>";
                 break;
             
+            case 'combat':
+                $html .= "<p class='mt-4'><a href='donjon_fight.php?id=". $this->donjon_id ."' class='btn btn-green'>Combattre</a></p>";
+                $html .= "<a href='donjon_play.php?id=". $this->donjon_id ."' class='btn btn-green'>Continuer l'exploration</a></p>";
+                break;
+
             default;
-                $html .= "Aucune action possible !";
+                $html .= "<p>Aucune action possible !</p>";
                 break;
         }
 
