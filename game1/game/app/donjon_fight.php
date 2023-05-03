@@ -139,9 +139,9 @@
     // dd($_SESSION);
 
     if ($_SESSION['perso']['pdv'] <= 0) {
-        unset($_SESSION['perso']);
+        // unset($_SESSION['perso']);
         unset($_SESSION['fight']);
-        header('Location: persos.php');
+        header('Location: persos_dead.php');
     }
 
     require_once('_header.php');
