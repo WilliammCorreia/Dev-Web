@@ -12,7 +12,7 @@
     <b>Dextérité:</b> <?php echo $_SESSION['perso']['dex']; ?></h2>
 </div>
 <div>
-    <b>Intélligence:</b> <?php echo $_SESSION['perso']['int']; ?></h2>
+    <b>Intelligence:</b> <?php echo $_SESSION['perso']['int']; ?></h2>
 </div>
 <div>
     <b>Charisme:</b> <?php echo $_SESSION['perso']['char']; ?></h2>

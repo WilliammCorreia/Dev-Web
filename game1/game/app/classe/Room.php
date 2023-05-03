@@ -4,7 +4,8 @@ class Room {
     private string $name;
     private string $description;
     private string $type;
-    private string $donjon_id;
+    private int $donjon_id;
+    private int $or;
 
     public function __construct($room)
     {
@@ -34,33 +35,49 @@ class Room {
         $this->description = $description;
     }
 
-    public function getActions(): string 
+    public function getHTML(): string
     {
         $html = "";
 
-        switch($this->type){
+        switch ($this->type) {
             case 'vide':
                 $html .= "<p class='mt-4'><a href='donjon_play.php?id=". $this->donjon_id ."' class='btn btn-green'>Continuer l'exploration</a></p>";
                 break;
 
             case 'treasur':
-                $or = rand(0, 20);
-                $_SESSION['perso']['gold'] += $or;
-
-                $html .= "<p class='mt-4'>Vous avez gagné " . $or . " pièce d'or</p>";
+                $html .= "<p class='mt-4'>Vous avez gagné " . $this->or . " pièce d'or</p>";
                 $html .= "<p class='mt-4'><a href='donjon_play.php?id=". $this->donjon_id ."' class='btn btn-green'>Continuer l'exploration</a></p>";
                 break;
-            
-            case 'combat':
-                $html .= "<p class='mt-4'><a href='donjon_fight.php?id=". $this->donjon_id ."' class='btn btn-green'>Combattre</a></p>";
-                $html .= "<a href='donjon_play.php?id=". $this->donjon_id ."' class='btn btn-green'>Continuer l'exploration</a></p>";
-                break;
 
-            default;
+            case 'combat':
+                $html .= "<p class='mt-4'><a href='donjon_fight.php?id=". $this->donjon_id ."' class='me-2 btn btn-green'>Combattre</a>";
+                $html .= "<a href='donjon_play.php?id=". $this->donjon_id ."' class='btn btn-blue'>Fuir et continuer l'exploration</a></p>";
+                break;
+            
+            default:
                 $html .= "<p>Aucune action possible !</p>";
                 break;
         }
 
         return $html;
+    }
+
+    public function makeAction(): void
+    {
+        switch ($this->type) {
+            case 'vide':
+                break;
+
+            case 'treasur':
+                $this->or = rand(0, 20);
+                $_SESSION['perso']['gold'] += $this->or;
+                break;
+
+            case 'combat':
+                break;
+            
+            default:
+                break;
+        }
     }
 }

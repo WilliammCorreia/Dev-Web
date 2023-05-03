@@ -9,6 +9,7 @@ class Ennemi
     public int $constitution;
     public int $speed;
     public int $xp;
+    public int $gold;
 
     // C'est la fonction qui gère l'attaque
     public function atk()

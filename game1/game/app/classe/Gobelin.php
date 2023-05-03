@@ -13,10 +13,11 @@ class Gobelin extends Ennemi
         $this->constitution = 8;
         $this->speed = 7;
         $this->xp = 4;
+        $this->gold = 10;
     }
 
     public function runaway()
     {
         
     }
-}
+}   
