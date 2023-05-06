@@ -99,12 +99,29 @@ body {
 }
 
 .mort {
-    text-align: center;
     color: rgb(216, 52, 52);
     font-family: 'GTA';
     background-color: rgba(28, 28, 28, 0.7);
-    position: relative;
-    top: 50%;
-    transform: translateY(250%);
     font-size: 350%;
+    margin-bottom: 1%;
+}
+
+.body_mort {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.btn-mort {
+    /* text-decoration sert à enlever le soulignage du lien  */
+    text-decoration: none;
+    color: black;
+    font-family: 'GTA';
+}
+
+.btn-mort:hover {
+    color: rgb(216, 52, 52);
 }

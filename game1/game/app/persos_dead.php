@@ -20,8 +20,8 @@ $sth->execute([
 ]);
 
 ?>
+<?php require_once("_header.php"); ?>
 <div class="body_mort">
-    <?php require_once("_header.php"); ?>
     <h1 class="mort" >vous êtes mort</h1>
-    <a class="btn-blue" href="persos.php">Réssuciter</a>
+    <a class="btn-mort" href="persos.php">Ressusciter</a>
 </div>
