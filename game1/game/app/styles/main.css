@@ -51,8 +51,8 @@ body {
 }
 
 .btn-blue {
-    background-color: cyan;
-    color: aliceblue;
+    background-color: rgba(142, 197, 255, 0.824);
+    color: rgb(50, 87, 120);
     padding: 10px;
     border-radius: 10px;
     /* text-decoration sert à enlever le soulignage du lien  */
@@ -86,4 +86,25 @@ body {
     transform: translate(-50%, -50%);
     font-size: 150%;
     text-align: center;
+}
+
+/* .email_mdp {
+    width: 150px;
+    height: 50px;
+} */
+
+@font-face {
+    font-family: 'GTA';
+    src: url('Anton-Regular.ttf') format('truetype');
+}
+
+.mort {
+    text-align: center;
+    color: rgb(216, 52, 52);
+    font-family: 'GTA';
+    background-color: rgba(28, 28, 28, 0.7);
+    position: relative;
+    top: 50%;
+    transform: translateY(250%);
+    font-size: 350%;
 }

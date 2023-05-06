@@ -13,6 +13,7 @@ class DarkKnight extends Ennemi
         $this->constitution = 15;
         $this->speed = 5;
         $this->xp = 20;
+        $this->gold = 40;
     }
 
     public function fear()

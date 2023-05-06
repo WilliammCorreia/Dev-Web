@@ -8,10 +8,20 @@ if (!isset($_SESSION['perso'])) {
     header('Location: persos.php');
 }
 
+$bdd = connect();
+$sql = "UPDATE persos SET `gold` = :gold, `pdv` = :pdv WHERE id = :id AND user_id = :user_id;";    
+$sth = $bdd->prepare($sql);
+
+$sth->execute([
+    'gold'      => 0,
+    'pdv'       => 20,
+    'id'        => $_SESSION['perso']['id'],
+    'user_id'   => $_SESSION['user']['id']
+]);
+
 ?>
-<?php require_once("_header.php"); ?>
-<div class="index">
-    <h1>Votre personnage est mort !</h1>
-    <h3>Il a perdu tout son XP et ses caractéristiques.</h3>
+<div class="body_mort">
+    <?php require_once("_header.php"); ?>
+    <h1 class="mort" >vous êtes mort</h1>
+    <a class="btn-blue" href="persos.php">Réssuciter</a>
 </div>
-    

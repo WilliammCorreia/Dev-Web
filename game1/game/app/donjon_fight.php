@@ -67,7 +67,7 @@
                     $_SESSION['fight']['html'][] = "Vous avez tuez votre ennemi.";
                 }
             } else {
-                $_SESSION['fight']['html'][] = "Vous ratez votre ennmi.";
+                $_SESSION['fight']['html'][] = "Vous ratez votre ennemi.";
             }
         }
 
