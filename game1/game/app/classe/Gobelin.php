@@ -12,7 +12,7 @@ class Gobelin extends Ennemi
         $this->power = 10;
         $this->constitution = 8;
         $this->speed = 7;
-        $this->xp = 4;
+        $this->xp = 5;
         $this->gold = 10;
     }
 

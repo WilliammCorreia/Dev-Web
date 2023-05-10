@@ -11,19 +11,21 @@
         {
             $bdd = connect();
 
-            $sql = "INSERT INTO persos (`name`, `for`, `dex`, `int`, `char`, `vit`, `pdv`, `user_id`) VALUES (:name, :for, :dex, :int, :char, :vit, :pdv, :user_id);";
+            $sql = "INSERT INTO persos (`name`, `for`, `dex`, `int`, `char`, `vit`, `pdv`, `xp`, `level`, `user_id`) VALUES (:name, :for, :dex, :int, :char, :vit, :pdv, :xp, :level, :user_id);";
             echo $sql;
             $sth = $bdd->prepare($sql);
 
             $sth->execute ([
-            'name'     => $_POST['name'],
-            'for'      => 10,
-            'dex'      => 10,
-            'int'      => 10,
-            'char'     => 10,
-            'vit'      => 10,
-            'pdv'      => 20,
-            'user_id'  => $_SESSION['user']['id']
+            'name'       => $_POST['name'],
+            'for'        => 10,
+            'dex'        => 10,
+            'int'        => 10,
+            'char'       => 10,
+            'vit'        => 10,
+            'pdv'        => 20,
+            'level'      => 1,
+            'xp'         => 0,
+            'user_id'    => $_SESSION['user']['id']
             ]);
 
             header('Location: persos.php');

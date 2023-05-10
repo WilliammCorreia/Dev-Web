@@ -63,8 +63,13 @@
 
                 if ($_SESSION['fight']['ennemi']->pol <= 0) {
                     $_SESSION['perso']['gold'] += $_SESSION['fight']['ennemi']->gold;
-                    $_SESSION['fight']['html'][] = "Vous gagnez " . $_SESSION['fight']['ennemi']->gold . " Or";
+                    $_SESSION['perso']['xp'] += $_SESSION['fight']['ennemi']->xp;
+                    $_SESSION['fight']['html'][] = "Vous gagnez " . $_SESSION['fight']['ennemi']->gold . " Or et " . $_SESSION['fight']['ennemi']->xp . " XP.";
                     $_SESSION['fight']['html'][] = "Vous avez tuez votre ennemi.";
+                    if( $_SESSION['perso']['xp'] > 5 )
+                    {
+                        header("Location: upgrade.php");
+                    }
                 }
             } else {
                 $_SESSION['fight']['html'][] = "Vous ratez votre ennemi.";
@@ -85,8 +90,14 @@
 
             if ($_SESSION['fight']['ennemi']->pol <= 0) {
                 $_SESSION['perso']['gold'] += $_SESSION['fight']['ennemi']->gold;
-                $_SESSION['fight']['html'][] = "Vous gagnez " . $_SESSION['fight']['ennemi']->gold . " Or";
+                $_SESSION['perso']['xp'] += $_SESSION['fight']['ennemi']->xp;
+                $_SESSION['fight']['html'][] = "Vous gagnez " . $_SESSION['fight']['ennemi']->gold . " Or et " . $_SESSION['fight']['ennemi']->xp . " XP.";
                 $_SESSION['fight']['html'][] = "Vous avez tuez votre ennemi.";
+
+                if( $_SESSION['perso']['xp'] > 5 )
+                    {
+                        header("Location: upgrade.php");
+                    }
             } else {
                 $_SESSION['fight']['html'][] = "Votre ennemi attaque";
                 $touche = random_int(0, 20);

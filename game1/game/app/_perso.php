@@ -20,3 +20,9 @@
 <div>
     <b>Vitesse:</b> <?php echo $_SESSION['perso']['vit']; ?></h2>
 </div>
+<div>
+    <b>Niveau:</b> <?php echo $_SESSION['perso']['level']; ?></h2>
+</div>
+<div>
+    <b>XP:</b> <?php echo $_SESSION['perso']['xp']; ?></h2>
+</div>
