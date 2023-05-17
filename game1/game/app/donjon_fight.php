@@ -66,8 +66,10 @@
                     $_SESSION['perso']['xp'] += $_SESSION['fight']['ennemi']->xp;
                     $_SESSION['fight']['html'][] = "Vous gagnez " . $_SESSION['fight']['ennemi']->gold . " Or et " . $_SESSION['fight']['ennemi']->xp . " XP.";
                     $_SESSION['fight']['html'][] = "Vous avez tuez votre ennemi.";
-                    if( $_SESSION['perso']['xp'] > 5 )
+                    if( $_SESSION['perso']['xp'] >= ($_SESSION['perso']['level'] * 2) )
                     {
+                        $_SESSION['perso']['level'] += 1;
+                        $_SESSION['perso']['xp'] = 0;
                         header("Location: upgrade.php");
                     }
                 }
@@ -94,8 +96,10 @@
                 $_SESSION['fight']['html'][] = "Vous gagnez " . $_SESSION['fight']['ennemi']->gold . " Or et " . $_SESSION['fight']['ennemi']->xp . " XP.";
                 $_SESSION['fight']['html'][] = "Vous avez tuez votre ennemi.";
 
-                if( $_SESSION['perso']['xp'] > 5 )
+                if( $_SESSION['perso']['xp'] >= 5 )
                     {
+                        $_SESSION['perso']['level'] += 1;
+                        $_SESSION['perso']['xp'] = 0;
                         header("Location: upgrade.php");
                     }
             } else {
