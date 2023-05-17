@@ -125,3 +125,14 @@ body {
 .btn-mort:hover {
     color: rgb(216, 52, 52);
 }
+
+main {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    text-align: center;
+}
+
+.btn-form {
+    
+}

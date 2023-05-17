@@ -26,30 +26,32 @@
     $donjons = $sth->fetchAll();
 ?>
 
-<? require_once("_header.php"); ?>
+<?php require_once("_header.php"); ?>
 
-<h3>Améliorer une caractéristique :</h3>
+<main>
+    <h3>Améliorer une caractéristique :</h3>
 
-<form action="" method="get">
-    <div class="form-row">
-        <label for="char"></label>
-            <select class="form-field" id="char" name="char">
-                <option value="1">Force</option>
-                <option value="2">Dextérité</option>
-                <option value="3">Intelligence</option>
-                <option value="4">Charisme</option>
-                <option value="5">Vitesse</option>
-            </select>
-    </div>
-    <div class="form-row">
-        <input 
-            type="submit" 
-            class="form-field" 
-            name="send" 
-            value="Améliorer" 
-        />
-    </div>
- </form>
+    <form action="" method="get">
+        <div class="form-row">
+            <label for="char"></label>
+                <select class="form-field" id="char" name="char">
+                    <option value="1">Force</option>
+                    <option value="2">Dextérité</option>
+                    <option value="3">Intelligence</option>
+                    <option value="4">Charisme</option>
+                    <option value="5">Vitesse</option>
+                </select>
+        </div>
+        <div class="btn-form">
+            <input 
+                type="submit" 
+                class="form-field" 
+                name="send" 
+                value="Améliorer" 
+            />
+        </div>
+    </form>
+</main>
 
  <?php 
     $valeur = 0;
@@ -57,6 +59,7 @@
     if (isset($_GET['send'])) {
         $valeur = $_GET['char'];
     }
+
 
     // Incrémentation des valeurs
     if ( $valeur == 1 )
