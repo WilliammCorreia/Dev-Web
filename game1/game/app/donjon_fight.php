@@ -70,6 +70,7 @@
                     {
                         $_SESSION['perso']['level'] += 1;
                         $_SESSION['perso']['xp'] = 0;
+                        $_SESSION['perso']['pdv'] += 5;
                         header("Location: upgrade.php");
                     }
                 }
@@ -96,10 +97,11 @@
                 $_SESSION['fight']['html'][] = "Vous gagnez " . $_SESSION['fight']['ennemi']->gold . " Or et " . $_SESSION['fight']['ennemi']->xp . " XP.";
                 $_SESSION['fight']['html'][] = "Vous avez tuez votre ennemi.";
 
-                if( $_SESSION['perso']['xp'] >= 5 )
+                if( $_SESSION['perso']['xp'] >= ($_SESSION['perso']['level'] * 2) )
                     {
                         $_SESSION['perso']['level'] += 1;
                         $_SESSION['perso']['xp'] = 0;
+                        $_SESSION['perso']['pdv'] += 5;
                         header("Location: upgrade.php");
                     }
             } else {
@@ -141,12 +143,14 @@
 
     // Sauvegarde de l'état de votre personnage
     $bdd = connect();
-    $sql = "UPDATE persos SET `gold` = :gold, `pdv` = :pdv WHERE id = :id AND user_id = :user_id;";    
+    $sql = "UPDATE persos SET `gold` = :gold, `pdv` = :pdv, `xp` = :xp, `level` = :level WHERE id = :id AND user_id = :user_id;";    
     $sth = $bdd->prepare($sql);
 
     $sth->execute([
         'gold'      => $_SESSION['perso']['gold'],
         'pdv'       => $_SESSION['perso']['pdv'],
+        'xp'       => $_SESSION['perso']['xp'],
+        'level'       => $_SESSION['perso']['level'],
         'id'        => $_SESSION['perso']['id'],
         'user_id'   => $_SESSION['user']['id']
     ]);

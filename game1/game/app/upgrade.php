@@ -88,5 +88,17 @@
         header("Location: donjons.php");
     }
 
-    // Amélioration des points de vie
-    $_SESSION['perso']['pdv'] += 5;
+    // Sauvegarde de l'état de votre personnage
+    $bdd = connect();
+    $sql = "UPDATE persos SET `for` = :for, `dex` = :dex, `int` = :int, `char` = :char, `vit` = :vit WHERE id = :id AND user_id = :user_id;";    
+    $sth = $bdd->prepare($sql);
+
+    $sth->execute([
+        'for'      => $_SESSION['perso']['for'],
+        'dex'       => $_SESSION['perso']['dex'],
+        'int'       => $_SESSION['perso']['int'],
+        'char'       => $_SESSION['perso']['char'],
+        'vit'       => $_SESSION['perso']['vit'],
+        'id'        => $_SESSION['perso']['id'],
+        'user_id'   => $_SESSION['user']['id']
+    ]);
