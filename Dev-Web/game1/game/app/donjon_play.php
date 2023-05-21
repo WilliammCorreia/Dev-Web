@@ -38,16 +38,13 @@
     }
 </style>
 <?php require_once('_header.php'); ?>
-    <div 
-        class="container"
-        style="background-color: rgba(255,255,255, 0.5)"
-    >   
-        <div class="container">
+
+        <div class="background">
             <div class="row mt-4">
                 <div class="px-4">
                     <?php require_once('_perso.php'); ?>
                 </div>
-                <div class="">
+                <div class="login">
                     <h1><?php echo $roomObject->getName(); ?></h1>
                     <p><?php echo $roomObject->getDescription(); ?></p>
                     <?php echo $roomObject->getHTML(); ?>

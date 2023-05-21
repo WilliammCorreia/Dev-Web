@@ -28,7 +28,7 @@
 
 <?php require_once("_header.php"); ?>
 
-<main>
+<main class="login">
     <h3>Améliorer une caractéristique :</h3>
 
     <form action="" method="get">
