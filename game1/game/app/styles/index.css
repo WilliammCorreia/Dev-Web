@@ -1,0 +1,17 @@
+body {
+    background-color: aqua;
+    text-align: center;
+}
+
+h1 {
+    color: blue;
+}
+
+.bouton {
+    padding: 10px 10px;
+    background-color: beige;
+}
+
+p {
+    background-color: aquamarine;
+}
