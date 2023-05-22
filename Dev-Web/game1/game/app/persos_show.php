@@ -25,10 +25,10 @@
 
     <?php require_once('_header.php'); ?>
 
-    <div class="login">
-        <h1>Détails du personnage</h1>
+    <div class="show">
+        <h1>Détails du personnage :</h1>
 
-        <b>Nom:</b> <?php echo $perso['name']; ?>
+        <?php require_once("_perso.php"); ?>
 
         <a href="persos.php" class="btn">Retour</a>
     </div>

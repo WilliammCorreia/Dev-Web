@@ -166,3 +166,20 @@ h6 {
     height: 100%;
     font-size: 150%;
 }
+
+.show {
+    text-align: center;
+    /* Pour le positionner par rapport au conteneur parent */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* Pour se positioner au centre du conteneur parent */
+    transform: translate(-50%, -50%);
+    font-size: 150%;
+}
+
+.show h1 {
+    margin-bottom: 10%;
+    color: #81aee0;
+    text-shadow: 3px 3px 2px rgb(51, 101, 210);
+}
