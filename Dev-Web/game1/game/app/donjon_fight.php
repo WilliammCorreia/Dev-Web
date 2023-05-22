@@ -55,7 +55,7 @@
             $_SESSION['fight']['html'][] = $touche;
 
             if ($touche >= 10) {
-                $_SESSION['fight']['html'][] = "Vous touchez votre ennmi.";
+                $_SESSION['fight']['html'][] = "Vous touchez votre ennemi.";
                 $degat = random_int(0,10) + floor($_SESSION['perso']['for']/3);
                 
                 $_SESSION['fight']['html'][] = "Vous lui infligez " . $degat - floor($_SESSION['fight']['ennemi']->constitution/3) . " dégats";
@@ -86,7 +86,7 @@
         $_SESSION['fight']['html'][] = $touche;
 
         if ($touche >= 10) {
-            $_SESSION['fight']['html'][] = "Vous touchez votre ennmi.";
+            $_SESSION['fight']['html'][] = "Vous touchez votre ennemi.";
             $degat = random_int(0,10) + floor($_SESSION['perso']['for']/3);
             $_SESSION['fight']['html'][] = "Il vous inflige " . $degat - floor($_SESSION['fight']['ennemi']->constitution/3) . " dégats";
             $_SESSION['fight']['ennemi']->pol -=  $degat - floor($_SESSION['fight']['ennemi']->constitution/3);
@@ -115,11 +115,11 @@
                     $_SESSION['fight']['html'][] = "Il vous inflige " . $degat - floor($_SESSION['perso']['for']/3) . " dégats";
                     $_SESSION['perso']['pdv'] -=  $degat - floor($_SESSION['perso']['for']/3);
                 } else {
-                    $_SESSION['fight']['html'][] = "Il vous rate votre ennmi.";
+                    $_SESSION['fight']['html'][] = "Il vous rate votre ennemi.";
                 }
             }
         } else {
-            $_SESSION['fight']['html'][] = "Vous ratez votre ennmi.";
+            $_SESSION['fight']['html'][] = "Vous ratez votre ennemi.";
 
             // Attaque de l'ennemi
             $_SESSION['fight']['html'][] = "Votre ennemi attaque";
