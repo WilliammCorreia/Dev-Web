@@ -2,6 +2,7 @@
 
     require_once('./classe/Gobelin.php');
     require_once('./classe/DarkKnight.php');
+    require_once('./classe/GhostKing.php');
 
     require_once('functions.php');
 
@@ -22,6 +23,10 @@
             $ennemi = new Gobelin();
         } else {
             $ennemi = new DarkKnight();
+        }
+
+        if ($_GET['id'] == 2) {
+            $ennemi = new GhostKing();
         }
 
         $_SESSION['fight']['ennemi'] = $ennemi;
@@ -166,11 +171,11 @@
     require_once('_header.php');
 ?>
     <div class="container">
-        <div class="row mt-4">
-            <div class="px-4">
+        <div class="fight">
+            <div class="fight_perso">
                 <?php require_once('_perso.php'); ?>
             </div>
-            <div class="">
+            <div class="fight_main">
                 <h1>Combat</h1>
                 <?php
 
@@ -193,7 +198,7 @@
                     </a>
                 <?php } ?>
             </div>
-            <div class="px-4">
+            <div class="fight_ennemi">
                 <?php require_once('_ennemi.php'); ?>
             </div>
         </div>

@@ -6,7 +6,7 @@ class Room {
     private string $type;
     private int $donjon_id;
     private int $or;
-    public string $image;
+    public string $picture;
 
     public function __construct($room)
     {

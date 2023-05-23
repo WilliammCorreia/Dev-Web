@@ -171,7 +171,7 @@ h6 {
     text-align: center;
     /* Pour le positionner par rapport au conteneur parent */
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     /* Pour se positioner au centre du conteneur parent */
     transform: translate(-50%, -50%);
@@ -189,4 +189,23 @@ section header {
     color: rgb(0, 0, 0);
     text-shadow: 3px 3px 2px rgb(163, 26, 26);
     font-size: 150%;
+}
+
+.fight {
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 20rem;
+    background-image: url(img/snow.jpg);
+}
+
+.fight_perso {
+    padding: 0 2rem;
+}
+
+.fight_main {
+    width: 20%;
+}
+
+.fight_ennemi {
+    padding: 0 2rem;
 }

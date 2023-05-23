@@ -1,53 +1,56 @@
-<?php require_once('functions.php');
+<?php
+require_once('functions.php');
 
-    // Vérifie que l'utilisateur est connecté, s'il n'est pas connecté, il l'envoie vers "login.php"
-    if (!isset($_SESSION['user'])) 
-    {
-        header('Location: login.php');
-    }
+// Vérifie que l'utilisateur est connecté, s'il n'est pas connecté, il l'envoie vers "login.php"
+if (!isset($_SESSION['user'])) 
+{
+    header('Location: login.php');
+    exit(); // Ajout de la sortie après la redirection pour arrêter l'exécution du script
+}
 
-    // Envoie la valeur de la fonction connect() dans la variale $bdd
-    $bdd = connect();
+// Envoie la valeur de la fonction connect() dans la variable $bdd
+$bdd = connect();
 
-    $sql = "SELECT * FROM users WHERE email = :email";
-    
-    $sth = $bdd->prepare($sql);
+// Affichage de l'email actuel
+$email = "";
 
-    $sth->execute([
-        'email'       => $_POST['email']
-    ]);
+$sql = "SELECT email FROM users";
 
-    $sth->execute(array(
-        ':email' => $email
-    ));
+$sth = $bdd->prepare($sql);
 
-    $email = $sth->fetch();
+$sth->execute();
 
-    //dd($persos);
+$email = $sth->fetchColumn();
 
 ?>
 
 <?php require_once('_header.php'); ?>
 
-    <h1>
-        <?php echo $email; ?>
-        <?php echo $_SESSION['user']['email']; ?>
-    </h1>
-    <form action="" method="post">
-        <div>
-            <label for="email">Email</label>
-            <input 
-                type="text" 
-                id="email" 
-                name="email" 
-                placeholder="Entrez un email" 
-                value="<?php echo $users['email']; ?>" 
-                required
-            >
-        </div>
-        <div>
-            <input type="submit" name="send" value="Modifier" class="btn">
-        </div>
+<article class="login">
+
+    <h2>Modification d'email</h2><br>
+    <form method="POST" action="">
+        <label for="new_email">Nouvel email :</label>
+        <input type="email" name="new_email" required><br><br>
+        <input type="submit" value="Modifier">
     </form>
+
+</article>
+
+<?php
+// Vérification si le formulaire est soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $newEmail = $_POST["new_email"];
+
+    $sql = "UPDATE users SET `email` = :email WHERE id = :id";    
+    $sth = $bdd->prepare($sql);
+
+    $sth->execute([
+        'email' => $newEmail,
+        'id' => $_SESSION['user']['id'],
+    ]);
+}
+?>
 </body>
 </html>
