@@ -195,7 +195,6 @@ section header {
     display: flex;
     margin-top: 2rem;
     margin-left: 20rem;
-    background-image: url(img/snow.jpg);
 }
 
 .fight_perso {
@@ -209,3 +208,88 @@ section header {
 .fight_ennemi {
     padding: 0 2rem;
 }
+
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="char"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.form-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #f5f5f5;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    background-color: #f5f5f5;
+    border: 1px solid;
+}
+
+thead {
+    background-color: #f5f5f5;
+}
+
+.perso_cre {
+    text-decoration: none;
+    color: black;
+}
+
+.perso_cre:hover {
+    color: rgb(52, 79, 216);
+}
+
+
+
+
+
+
+

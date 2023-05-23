@@ -141,7 +141,7 @@
                     $_SESSION['fight']['html'][] = "Vous etes mort.";
                 }
             } else {
-                $_SESSION['fight']['html'][] = "Il vous rate votre ennmi.";
+                $_SESSION['fight']['html'][] = "Il vous rate.";
             }
         }
     }
@@ -170,6 +170,7 @@
 
     require_once('_header.php');
 ?>
+
     <div class="container">
         <div class="fight">
             <div class="fight_perso">

@@ -9,12 +9,19 @@ if (!isset($_SESSION['perso'])) {
 }
 
 $bdd = connect();
-$sql = "UPDATE persos SET `gold` = :gold, `pdv` = :pdv WHERE id = :id AND user_id = :user_id;";    
+$sql = "UPDATE persos SET `gold` = :gold, `pdv` = :pdv, `for` = :for, `dex` = :dex, `int` = :int, `char` = :char, `vit` = :vit, `level` = :level, `xp` = :xp WHERE id = :id AND user_id = :user_id;";    
 $sth = $bdd->prepare($sql);
 
 $sth->execute([
     'gold'      => 0,
     'pdv'       => 20,
+    'for'       => 10,
+    'dex'       => 10,
+    'int'       => 10,
+    'char'      => 10,
+    'vit'       => 10,
+    'level'     => 1,
+    'xp'        => 0,
     'id'        => $_SESSION['perso']['id'],
     'user_id'   => $_SESSION['user']['id']
 ]);

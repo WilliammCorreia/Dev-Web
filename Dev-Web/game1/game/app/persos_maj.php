@@ -51,7 +51,7 @@
         <h1>Modifier un personnage</h1>
         <form action="" method="post">
             <div>
-                <label for="name">Nom</label>
+                <label for="name"></label>
                 <input 
                     type="text" 
                     id="name" 

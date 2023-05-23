@@ -26,7 +26,7 @@
 
     <div class="login">
             <h1>Vos personnages</h1>
-            <a href="persos_add.php">Créer un personnage</a>
+            <a href="persos_add.php" class="perso_cre">Créer un personnage</a>
 
             <?php if (isset($_GET['msg'])) {
                 echo "<div>" . $_GET['msg']. "</div>";
